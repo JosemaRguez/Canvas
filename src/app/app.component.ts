@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-root', //Component
+  templateUrl: './app.component.html', //View
+  styleUrls: ['./app.component.css'] //Styles
 })
+
 export class AppComponent {
-  title = 'canvas';
+  public title = 'Canvas';
+  public description = 'Organiza facilmente tu trabajo y el de tu equipo';
 }

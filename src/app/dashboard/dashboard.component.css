@@ -25,3 +25,16 @@
     background-color: #4CAF50;
     color: white;
   }
+
+.postIt {
+  align-items: 'center';
+  justify-content: 'center';
+  width: 10em;
+  height: 10em;
+  background-color: #ffdf00;
+}
+  
+.zero-card {
+  max-width: 400px;
+  background-color: #ffdf00;
+}

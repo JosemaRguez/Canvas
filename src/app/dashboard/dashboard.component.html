@@ -1,25 +1,32 @@
 <div class="content" role="main">
-    <h3>
-        {{name}}
-    </h3>
-    <table id='dashboard' style="width:100%">
-        <tr>
-            <th>Pendiente</th>
-            <th>En progreso</th>
-            <th>Terminado</th>
-            <th>Revisado</th>
-        </tr>
-        <tr>
-            <td>Automatizar procesos</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
+  <h3>
+    {{name}}
+  </h3>
+  <table id='dashboard' style="width:100%">
+    <tr>
+      <td *ngFor="let title of dashboardTitles">{{title}}</td>
+    </tr>
+    <tr>
+      <td>
+        <div *ngFor="let task_one of taskStatusSplit['0']">
+          {{ task_one }}
+        </div>
+      </td>
+      <td>
+        <div *ngFor="let task_one of taskStatusSplit['1']">
+          {{ task_one }}
+        </div>
+      </td>
+      <td>
+        <div *ngFor="let task_second of taskStatusSplit['2']">
+          {{ task_second }}
+        </div>
+      </td>
+      <td>
+        <div *ngFor="let task_third of taskStatusSplit['3']">
+          {{ task_third }}
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>

@@ -8,39 +8,60 @@
     </tr>
     <tr>
       <td>
-        <div ngDefaultControl [(ngModel)]="task_one.description" *ngFor="let task_one of taskStatusSplit['0']">
-            {{ task_one.description }}
+        <div style="margin: 10px;" ngDefaultControl [(ngModel)]="task_zero.description" *ngFor="let task_zero of taskStatusSplit['0']" (click)="handleDelete(task_zero.id)">
+          <div style="flex: 1; width: 150px; height: 20px; background-color: #E4D778; margin-top: 30px;" (click)="handleDelete()"></div>
+          <div
+            style="flex: 1; width: 150px; height: 50px; background-color: #FFF3AB; text-align: left; vertical-align: middle;">
+            <span style="margin: 10px; cursor: default; ">{{ task_zero.description }}</span>
+          </div>
         </div>
       </td>
       <td>
-        <div *ngFor="let task_one of taskStatusSplit['1']">
-          {{ task_one.description }}
+        <div style="margin: 10px;" ngDefaultControl [(ngModel)]="task_first.description" *ngFor="let task_first of taskStatusSplit['1']" (click)="handleDelete(task_first.id)">
+          <div style="flex: 1; width: 150px; height: 20px; background-color: #DBB7FE; margin-top: 30px;"></div>
+          <div
+            style="flex: 1; width: 150px; height: 50px; background-color:#E7CFFF; text-align: left; vertical-align: middle;">
+            <span style="margin: 10px;cursor: default; ">{{ task_first.description }}</span>
+          </div>
         </div>
       </td>
       <td>
-        <div *ngFor="let task_second of taskStatusSplit['2']">
-          {{ task_second.description }}
+        <div style="margin: 10px;" ngDefaultControl [(ngModel)]="task_second.description" *ngFor="let task_second of taskStatusSplit['2']" (click)="handleDelete(task_second.id)">
+          <div style="flex: 1; width: 150px; height: 20px; background-color: #B8E3B1; margin-top: 30px;"></div>
+          <div
+            style="flex: 1; width: 150px; height: 50px; background-color: #CCF1C5; text-align: left; vertical-align: middle;">
+            <span style="margin: 10px; cursor: default; ">{{ task_second.description }}</span>
+          </div>
         </div>
       </td>
       <td>
-        <div *ngFor="let task_third of taskStatusSplit['3']">
-          {{ task_third.description }}
+        <div style="margin: 10px;" ngDefaultControl [(ngModel)]="task_third.description" *ngFor="let task_third of taskStatusSplit['3']" (click)="handleDelete(task_third.id)">
+          <div style="flex: 1; width: 170px; height: 20px; background-color: #BAD0E1; margin-top: 30px;"></div>
+          <div
+            style="flex: 1; width: 170px; height: 50px; background-color: #CDE9FF; text-align: left; vertical-align: middle;">
+            <span style="margin: 10px; cursor: default; ">{{ task_third.description }}</span>
+          </div>
         </div>
       </td>
     </tr>
   </table>
 
-  <ng-template #tableNotLoad >
+  <ng-template #tableNotLoad>
     <div class="error">'Error al cargar datos'</div>
-  </ng-template >
+  </ng-template>
 
   <div class="form">
     <h2>Registra una nueva tarea</h2>
     <form>
       <textarea name="description" placeholder="Descripción..." #description></textarea>
-      <input type="number" name="state" placeholder="Tiempo restante..." #state />
-      <input type="button" value="Registrar tarea" 
-        (click)="handleSubmitForm(description.value, state.value)" />
+      <!-- <input type="number" name="state" placeholder="Tiempo restante..." /> -->
+      <select #state>
+        <option value="0">Pendiente</option>
+        <option value="1">En progreso</option>
+        <option value="2">Terminado</option>
+        <option value="3">Revisado</option>
+      </select>
+      <input type="button" value="Registrar tarea" (click)="handleSubmitForm(description.value, state.value)" />
     </form>
   </div>
 </div>

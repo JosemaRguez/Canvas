@@ -10,29 +10,16 @@
   
   #dashboard td, #dashboard th {
     border: 1px solid #ddd;
-    padding: 40px;
+    text-align: center;
+    width: 170px; 
+    height: 40px;
     white-space: nowrap;
   }
   
-  #dashboard tr:nth-child(even){background-color: #f2f2f2;}
-  
-  #dashboard tr:hover {background-color: #ddd;}
-  
-  #dashboard th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #4CAF50;
-    color: white;
-  }
+  #dashboard tr {align-items: center; align-content: center; text-align: center;background-color: #f2f2f2;}
 
-.postIt {
-  align-items: 'center';
-  justify-content: 'center';
-  width: 10em;
-  height: 10em;
-  background-color: #ffdf00;
-}
+  #dashboard tr:nth-child(){ background-color: #f2f2f2;}
+  
 .form{
 	font-family: 'Open Sans Condensed', arial, sans;
 	width: 500px;

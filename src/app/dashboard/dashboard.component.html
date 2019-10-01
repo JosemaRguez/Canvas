@@ -2,31 +2,45 @@
   <h3>
     {{name}}
   </h3>
-  <table id='dashboard' style="width:100%">
+  <table *ngIf="taskStatusSplit; else tableNotLoad" id='dashboard' style="width:100%">
     <tr>
       <td *ngFor="let title of dashboardTitles">{{title}}</td>
     </tr>
     <tr>
       <td>
-        <div *ngFor="let task_one of taskStatusSplit['0']">
-          {{ task_one }}
+        <div ngDefaultControl [(ngModel)]="task_one.description" *ngFor="let task_one of taskStatusSplit['0']">
+            {{ task_one.description }}
         </div>
       </td>
       <td>
         <div *ngFor="let task_one of taskStatusSplit['1']">
-          {{ task_one }}
+          {{ task_one.description }}
         </div>
       </td>
       <td>
         <div *ngFor="let task_second of taskStatusSplit['2']">
-          {{ task_second }}
+          {{ task_second.description }}
         </div>
       </td>
       <td>
         <div *ngFor="let task_third of taskStatusSplit['3']">
-          {{ task_third }}
+          {{ task_third.description }}
         </div>
       </td>
     </tr>
   </table>
+
+  <ng-template #tableNotLoad >
+    <div class="error">'Error al cargar datos'</div>
+  </ng-template >
+
+  <div class="form">
+    <h2>Registra una nueva tarea</h2>
+    <form>
+      <textarea name="description" placeholder="Descripción..." #description></textarea>
+      <input type="number" name="state" placeholder="Tiempo restante..." #state />
+      <input type="button" value="Registrar tarea" 
+        (click)="handleSubmitForm(description.value, state.value)" />
+    </form>
+  </div>
 </div>

@@ -4,67 +4,45 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'dashboard',
     templateUrl: './dashboard.component.html',
-    styleUrls: ['./dashboard.component.css'] 
+    styleUrls: ['./dashboard.component.css']
 })
 
 export class Dashboard {
     constructor() { }
 
-    ngOnInit() {
-        this.divideTasks()
-    }
+    ngOnInit() { }
 
     public name = 'Dashboard';
+    public isDisabled = true;
     public dashboardTitles = [
         'Pendiente',
         'En progreso',
         'Terminado',
         'Revisado',
     ];
-    public tasks = [
-        {
-            'description': 'Automatizar tareas',
-            'state': 0
-        },
-         {
-            'description': 'Crear una lista',
-            'state': 1
+    public taskStatusSplit = {
+        '0': [{
+            'description': 'Automatizar tareas'
+        }],
+        '1': [{
+            'description': 'Crear una lista'
         },
         {
-            'description': 'Ejectuar npm start',
-            'state': 1
-        },
-         {
-            'description': 'Crear proyecto',
-            'state': 3
-        }
-    ];
-
-    taskStatusSplit = { 
-        '0': [],
-        '1': [],
+            'description': 'Ejectuar npm start'
+        }],
         '2': [],
-        '3': [],
+        '3': [
+            {
+                'description': 'Crear proyecto'
+            }
+        ]
     };
 
-
-    divideTasks = () => {
-        this.tasks.map((task) => {
-            if(task.state === 0){
-                this.taskStatusSplit['0'].push(task.description)
-            }
-            if(task.state === 1){
-                this.taskStatusSplit['1'].push(task.description)
-            }
-            if(task.state === 2){
-                this.taskStatusSplit['2'].push(task.description)
-            }
-            if(task.state === 3){
-                this.taskStatusSplit['3'].push(task.description)
-            }
-        })
+    handleSubmitForm = (description, state) => {
+        this.taskStatusSplit[state].push({ 'description': description})
+        console.log(this.taskStatusSplit)
     }
-  }
-  
+}
+
 
 
